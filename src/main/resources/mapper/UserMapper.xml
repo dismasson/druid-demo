@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxli.druiddemo.dao.UserDao">
+    <insert id="save" parameterType="com.sxli.druiddemo.domain.User">
+      INSERT INTO user VALUES(#{id},#{name},#{password},#{age})
+    </insert>
+
+    <select id="find" parameterType="java.lang.Long" resultType="com.sxli.druiddemo.domain.User">
+      SELECT * FROM user WHERE id = #{value}
+    </select>
+</mapper>
