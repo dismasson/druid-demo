@@ -40,6 +40,10 @@ public class DruidDataSourceBean {
         dataSource.setUsername(config.getUserName());
         dataSource.setPassword(config.getPassword());
         dataSource.setUrl(config.getUrl());
+        // 配置空闲连接测试
+        dataSource.setTestWhileIdle(config.isTestWhileIdle());
+        // 配置空闲连接测试SQL语句
+        dataSource.setValidationQuery(config.getValidationQuery());
         List<Filter> filters = new ArrayList<>();
         // 将SQL过滤器加入到过滤器集合中
         filters.add(wallFilter());

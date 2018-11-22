@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 )
 @Component
 public class JdbcProperties {
+
     private String url;
 
     private int maxActive;
@@ -22,6 +23,10 @@ public class JdbcProperties {
     private String userName;
 
     private String password;
+
+    private String validationQuery;
+
+    private boolean testWhileIdle;
 
     public String getUrl() {
         return url;
@@ -77,5 +82,21 @@ public class JdbcProperties {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getValidationQuery() {
+        return validationQuery;
+    }
+
+    public void setValidationQuery(String validationQuery) {
+        this.validationQuery = validationQuery;
+    }
+
+    public boolean isTestWhileIdle() {
+        return testWhileIdle;
+    }
+
+    public void setTestWhileIdle(boolean testWhileIdle) {
+        this.testWhileIdle = testWhileIdle;
     }
 }
