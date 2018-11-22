@@ -44,6 +44,10 @@ public class DruidDataSourceBean {
         dataSource.setTestWhileIdle(config.isTestWhileIdle());
         // 配置空闲连接测试SQL语句
         dataSource.setValidationQuery(config.getValidationQuery());
+        // 开启定时回收空闲连接
+        dataSource.setRemoveAbandoned(config.isRemoveAbandoned());
+        // 配置多长时间没有被使用的连接算连接泄漏
+        dataSource.setRemoveAbandonedTimeoutMillis(config.getRemoveAbandonedTimeoutMillis());
         List<Filter> filters = new ArrayList<>();
         // 将SQL过滤器加入到过滤器集合中
         filters.add(wallFilter());

@@ -11,6 +11,10 @@ jdbc:
   validationQuery: SELECT 1
   ## 开启测试空闲
   testWhileIdle: true
+  ## 开启自动回收泄漏的连接
+  removeAbandoned: true
+  ## 多久时间没有被使用的连接算泄漏的连接
+  removeAbandonedTimeoutMillis: 1800000
 
 ## mybatis 配置
 mybatis:

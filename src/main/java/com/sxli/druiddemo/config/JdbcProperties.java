@@ -28,6 +28,10 @@ public class JdbcProperties {
 
     private boolean testWhileIdle;
 
+    private boolean removeAbandoned;
+
+    private Long removeAbandonedTimeoutMillis;
+
     public String getUrl() {
         return url;
     }
@@ -98,5 +102,21 @@ public class JdbcProperties {
 
     public void setTestWhileIdle(boolean testWhileIdle) {
         this.testWhileIdle = testWhileIdle;
+    }
+
+    public boolean isRemoveAbandoned() {
+        return removeAbandoned;
+    }
+
+    public void setRemoveAbandoned(boolean removeAbandoned) {
+        this.removeAbandoned = removeAbandoned;
+    }
+
+    public Long getRemoveAbandonedTimeoutMillis() {
+        return removeAbandonedTimeoutMillis;
+    }
+
+    public void setRemoveAbandonedTimeoutMillis(Long removeAbandonedTimeoutMillis) {
+        this.removeAbandonedTimeoutMillis = removeAbandonedTimeoutMillis;
     }
 }
