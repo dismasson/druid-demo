@@ -84,6 +84,8 @@ public class DruidDataSourceBean {
         statFilter.setLogSlowSql(true);
         // 设置多长执行时间算慢SQL,单位为毫秒，此刻没有那么大数据量，用一个小值模拟
         statFilter.setSlowSqlMillis(5);
+        // sql合并，如select id from user where id = 1这种格式的，可以合并成select id from user where id = ？
+        statFilter.setMergeSql(true);
         return statFilter;
     }
 }
