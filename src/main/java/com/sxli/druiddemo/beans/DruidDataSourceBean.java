@@ -48,6 +48,10 @@ public class DruidDataSourceBean {
         dataSource.setRemoveAbandoned(config.isRemoveAbandoned());
         // 配置多长时间没有被使用的连接算连接泄漏
         dataSource.setRemoveAbandonedTimeoutMillis(config.getRemoveAbandonedTimeoutMillis());
+        // 开启PSCache
+        dataSource.setPoolPreparedStatements(true);
+        // 最多保持多少个连接打开PSCache
+        dataSource.setMaxOpenPreparedStatements(5);
         List<Filter> filters = new ArrayList<>();
         // 将SQL过滤器加入到过滤器集合中
         filters.add(wallFilter());
