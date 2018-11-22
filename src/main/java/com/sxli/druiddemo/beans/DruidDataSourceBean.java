@@ -1,6 +1,7 @@
 package com.sxli.druiddemo.beans;
 
 import com.alibaba.druid.filter.Filter;
+import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.wall.WallConfig;
 import com.alibaba.druid.wall.WallFilter;
@@ -42,6 +43,8 @@ public class DruidDataSourceBean {
         List<Filter> filters = new ArrayList<>();
         // 将SQL过滤器加入到过滤器集合中
         filters.add(wallFilter());
+        // 将SQL记录过滤器加入到过滤器集合中
+        filters.add(statFilter());
         // 将过滤器集合加入到数据源的过滤器集合
         dataSource.setProxyFilters(filters);
         return dataSource;
@@ -68,5 +71,19 @@ public class DruidDataSourceBean {
         WallFilter wallFilter = new WallFilter();
         wallFilter.setConfig(wallConfig());
         return wallFilter;
+    }
+
+    /**
+     * SQL记录过滤器
+     *
+     * @return
+     */
+    public StatFilter statFilter() {
+        StatFilter statFilter = new StatFilter();
+        // 开启慢SQL记录
+        statFilter.setLogSlowSql(true);
+        // 设置多长执行时间算慢SQL,单位为毫秒，此刻没有那么大数据量，用一个小值模拟
+        statFilter.setSlowSqlMillis(5);
+        return statFilter;
     }
 }

@@ -6,6 +6,6 @@
     </insert>
 
     <select id="find" parameterType="java.lang.Long" resultType="com.sxli.druiddemo.domain.User">
-      SELECT * FROM user WHERE id = #{value}
+      SELECT id,name,age FROM user WHERE id = #{value}
     </select>
 </mapper>
